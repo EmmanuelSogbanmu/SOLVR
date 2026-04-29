@@ -5,7 +5,7 @@ const SCREENS = { LANDING: "landing", AUTH: "auth", PRICING: "pricing", APP: "ap
 
 const SUPABASE_URL = "https://jueovehsnxtkluyaiqeh.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZW92ZWhzbnh0a2x1eWFpcWVoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzczMjM2OTAsImV4cCI6MjA5Mjg5OTY5MH0.CD9fosokC5n3xMzTekICvap838YxT0B7twPNTT8gjzw";
-const PAYSTACK_KEY = "pk_test_a915180cdab31427f8a7dfd4324f84fd9ec07957";
+const PAYSTACK_KEY = "pk_live_15d0e3bdc67102c9719b93f6ae3356f72240fde9";
 
 // Supabase helpers
 const sb = {
@@ -248,9 +248,9 @@ export default function SolvrApp() {
         .back-link { text-align: center; margin-top: 16px; font-size: 12px; color: #334; cursor: pointer; }
         .back-link:hover { color: #778; }
         .app-wrap { display: flex; flex-direction: column; height: 100vh; }
-        .app-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; border-bottom: 1px solid rgba(255,255,255,0.06); flex-shrink: 0; }
+        .app-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); flex-shrink: 0; max-width: 100vw; overflow: hidden; }
         .avatar { width: 32px; height: 32px; border-radius: 50%; background: ${ACCENT}18; border: 1px solid ${ACCENT}33; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: ${ACCENT}; flex-shrink: 0; }
-        .icon-btn { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: #778; border-radius: 8px; padding: 7px 13px; font-size: 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; white-space: nowrap; }
+        .icon-btn { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: #778; border-radius: 8px; padding: 5px 8px; font-size: 11px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; white-space: nowrap; }
         .icon-btn:hover { color: #fff; }
         .icon-btn-active { background: rgba(0,229,160,0.07); border: 1px solid ${ACCENT}44; color: ${ACCENT}; border-radius: 8px; padding: 7px 13px; font-size: 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; white-space: nowrap; }
         .logout-btn { background: transparent; border: 1px solid rgba(255,255,255,0.07); color: #556; border-radius: 7px; padding: 7px 13px; font-size: 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
@@ -388,7 +388,7 @@ function PricingPage({ user, onBack, onSelectFree, onSelectPro }) {
             <div className="plan-price">0<span style={{ fontSize: "22px", fontWeight: 700, letterSpacing: 0 }}> NGN</span><span> / forever</span></div>
             <p className="plan-desc">Perfect for getting started</p>
             <ul className="plan-features-list">
-              {["3 problems per day", "All categories", "Basic solutions", "No history saved"].map(f => (
+              {["5 problems per day", "All categories", "Basic solutions", "No history saved"].map(f => (
                 <li key={f} className="plan-feat"><div className="chk-no">-</div>{f}</li>
               ))}
             </ul>
@@ -504,8 +504,8 @@ function AppScreen({ user, token, history, dailyCount, setDailyCount, addToHisto
   const bottomRef = useRef(null);
   const taRef = useRef(null);
   const isPro = user?.plan === "pro";
-  const remaining = 3 - dailyCount;
-  const hitLimit = !isPro && dailyCount >= 3;
+  const remaining = 5 - dailyCount;
+  const hitLimit = !isPro && dailyCount >= 5;
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -557,7 +557,7 @@ function AppScreen({ user, token, history, dailyCount, setDailyCount, addToHisto
           </button>
           {!isPro && <button className="icon-btn" onClick={onUpgrade}>Upgrade</button>}
           <div className="avatar">{initials}</div>
-          <span style={{ fontSize: "13px", fontWeight: 600, color: "#aaa" }}>{user.name.split(" ")[0]}</span>
+          
           <button className="logout-btn" onClick={onLogout}>Out</button>
         </div>
       </div>
@@ -616,7 +616,7 @@ function AppScreen({ user, token, history, dailyCount, setDailyCount, addToHisto
           <div className="input-area">
             {hitLimit ? (
               <div className="upgrade-strip">
-                <span>You have used all 3 free solves today</span>
+                <span>You have used all 5 free solves today</span>
                 <button onClick={onUpgrade}>Go Pro</button>
               </div>
             ) : (
@@ -648,4 +648,6 @@ function AppScreen({ user, token, history, dailyCount, setDailyCount, addToHisto
     </div>
   );
 }
- 
+
+            
+          
