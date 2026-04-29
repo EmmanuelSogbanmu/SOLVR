@@ -5,7 +5,7 @@ const SCREENS = { LANDING: "landing", AUTH: "auth", PRICING: "pricing", APP: "ap
 
 const SUPABASE_URL = "https://jueovehsnxtkluyaiqeh.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZW92ZWhzbnh0a2x1eWFpcWVoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzczMjM2OTAsImV4cCI6MjA5Mjg5OTY5MH0.CD9fosokC5n3xMzTekICvap838YxT0B7twPNTT8gjzw";
-const PAYSTACK_KEY = "pk_live_15d0e3bdc67102c9719b93f6ae3356f72240fde9";
+const PAYSTACK_KEY = "pk_test_a915180cdab31427f8a7dfd4324f84fd9ec07957";
 
 // Supabase helpers
 const sb = {
@@ -648,3 +648,5 @@ function AppScreen({ user, token, history, dailyCount, setDailyCount, addToHisto
     </div>
   );
 }
+
+  
