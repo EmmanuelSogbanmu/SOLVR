@@ -185,7 +185,7 @@ export default function SolvrApp() {
         .preview-dot { width: 9px; height: 9px; border-radius: 50%; background: ${ACCENT}; flex-shrink: 0; margin-top: 5px; animation: pulse 2s infinite; }
         @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
         .preview-text { font-size: 13px; color: #556; line-height: 1.65; }
-        .features-grid { max-width: 900px; margin: 0 auto; padding: 40px 16px; display: grid; grid-template-columns: 1fr; gap: 14px; }
+        .features-grid { max-width: 900px; margin: 0 auto; padding: 80px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
         .feature-card { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.07); border-radius: 18px; padding: 28px; transition: all 0.22s; }
         .feature-card:hover { border-color: rgba(0,229,160,0.18); transform: translateY(-3px); }
         .f-icon { font-size: 26px; margin-bottom: 14px; }
@@ -648,5 +648,4 @@ function AppScreen({ user, token, history, dailyCount, setDailyCount, addToHisto
     </div>
   );
 }
-
-  
+ 
